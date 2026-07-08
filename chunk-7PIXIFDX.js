@@ -1,0 +1,1 @@
+import{Da as t,Ta as s,Ua as i,bb as l}from"./chunk-ZE6ZXYEF.js";var n=class a{static \u0275fac=function(e){return new(e||a)};static \u0275cmp=t({type:a,selectors:[["app-legal-advise"]],decls:2,vars:0,template:function(e,p){e&1&&(s(0,"p"),l(1,"legal-advise works!"),i())},encapsulation:2})};export{n as LegalAdvisePage};

@@ -1,0 +1,1 @@
+import{Da as t,Ta as s,Ua as i,bb as a}from"./chunk-ZE6ZXYEF.js";var n=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-cookies"]],decls:2,vars:0,template:function(e,p){e&1&&(s(0,"p"),a(1,"cookies works!"),i())},encapsulation:2})};export{n as CookiesPage};

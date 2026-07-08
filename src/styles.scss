@@ -1,1 +1,118 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #d8cbb8;
+  --secondary-color: #6e7c4b;
+  --font-family: 'Roboto', sans-serif;
+  --font-size-base: clamp(14px, 2vw, 26px); // Tamaño base fluido
+  --h-space: 1.5dvh;
+  --w-space: 1.5dvw;
+  --text-dark: rgba(0, 0, 0, 0.8);
+  --text-light: rgba(255, 255, 255, 0.8);
+
+}
+/* styles.scss (Archivo de estilos global) */
+
+/* Controla la página que desaparece (la vieja) y la que aparece (la nueva) */
+/* 1. El lienzo temporal de la transición debe ser negro puro */
+::view-transition-group(root) {
+    background-color: #000;
+}
+
+/* 2. La página vieja cae hacia el negro (ease-in: empieza suave, termina de golpe) */
+::view-transition-old(root) {
+    animation: dip-to-black 0.3s ease-in forwards;
+}
+
+/* 3. La página nueva emerge del negro (ease-out: emerge rápido, termina suave) */
+::view-transition-new(root) {
+    /* El 0.3s del final es el delay para que espere a que la vieja termine */
+    animation: dip-from-black 0.3s ease-out 0.3s backwards;
+}
+
+/* --- LOS KEYFRAMES MÁGICOS --- */
+@keyframes dip-to-black {
+    from { 
+        opacity: 1; 
+        filter: brightness(1); /* Brillo normal */
+    }
+    to { 
+        opacity: 0; 
+        filter: brightness(0.2); /* Truco: oscurecemos la imagen un 80% mientras se desvanece */
+    }
+}
+
+@keyframes dip-from-black {
+    from { 
+        opacity: 0; 
+        filter: brightness(0.2); /* Nace ya oscura */
+    }
+    to { 
+        opacity: 1; 
+        filter: brightness(1); /* Recupera la luz normal al posarse */
+    }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-size: var(--font-size-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, figcaption {
+  font-family: 'Playfair Display', serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  text-align: center;
+}
+
+
+figcaption {
+  font-family: "playfair display", serif;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 3);
+}
+
+p{
+  line-height: 1.6;
+}
+
+button {
+  background-color: #1a1a1a;
+  color: white;
+  border: 2px solid #1a1a1a;
+  padding: calc(5px + 0.5dvw) calc(5px + 1dvw);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 7px;
+  white-space: nowrap;
+  font-size: var(--font-size-base);
+  /* Efecto hover invertido usando tu transición 'all' */
+  &:hover {
+    background-color: transparent;
+    color: #1a1a1a;
+  }
+}

@@ -1,0 +1,77 @@
+
+
+footer {
+    display: grid;
+    /* LA MAGIA: Crea tantas columnas como quepan, con un mínimo de 200px de ancho cada una. 
+       Si no caben, las baja. Cero media queries. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 3dvh;
+    column-gap: 0.5dvw;
+    padding: 6dvh 2dvw 4dvh;
+    background-color: var(--secondary-color); 
+
+    /* Layout interno estructural */
+    > address, > section, > nav {
+        display: flex;
+        flex-direction: column;
+        gap: var(--h-space); 
+    }
+    >address, >section, >nav, ul{
+        align-items: center;
+        text-align: center;
+    }
+
+    section > article{
+        display: flex;
+        flex-direction: column;
+        gap: var(--h-space);
+    }
+    /* Limpieza de listas */
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--h-space);
+    }
+
+    /* Redes sociales (que hagan wrap por si la columna se estrecha mucho) */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--h-space);
+    }
+ nav[aria-label="Redes sociales"] ul {
+        flex-direction: row;
+        gap: 1.5dvw;
+    }   
+    /* La caja del horario tira dos filas hacia abajo en el hueco que le toque */
+    .span-two-rows {
+        grid-row: span 2; 
+    }
+
+}
+li[routerLink]{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        color: var(--primary-color);
+    }
+}
+small, li[routerLink], nav[aria-label="Redes sociales"] > ul > li{
+    color: rgba(255, 255, 255, 0.6);
+    font-size: smaller;
+}
+h3{
+    color: rgba(0, 0, 0, 0.7);
+    font-style: normal;
+}
+h4{
+    font-family: 'roboto', sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+

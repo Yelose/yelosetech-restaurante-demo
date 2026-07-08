@@ -1,0 +1,59 @@
+<section>
+    <header>
+        <h2>Platos Destacados</h2>
+    </header>
+    <main>
+        @for (dish of dishesData; track $index) {
+        <article>
+            <figure>
+                <picture>
+                    <source [srcset]="dish.image" type="image/png">
+                    <img [src]="dish.image" [alt]="dish.name">
+                </picture>
+                <figcaption>
+                    {{dish.name}}
+                </figcaption>
+            </figure>
+            <div>
+                @for (description of dish.description; track $index) {
+                <p>{{description}}</p>
+                }
+            </div>
+        </article>
+        }
+    </main>
+</section>
+
+<app-sided-image-text 
+    title="Cuidamos cada detalle" 
+    [text]="textoDetalles" 
+    imgURL="img/img_8.jpg" 
+    alt="Mesa en Sal y Olivo preparada con gente disfrutando la comida"
+    bg="bg-primary">
+</app-sided-image-text>
+<app-sided-image-text title="Nuestra Esencia" titleColor="secondary" [text]="textoEsencia"
+    imgURL="img/nuestra_esencia.png" alt="Mesa en Sal y Olivo preparada con gente disfrutando la comida"
+    imagePosition="right">
+</app-sided-image-text>
+
+<section class="reviews">
+    <header>
+        <h2>Lo que dicen nuestros clientes</h2>
+    </header>
+    <main>
+        @for (review of reviews(); track $index) {
+        <article>
+            <blockquote>
+                <p>{{review.review}}</p>
+            </blockquote>
+            <div>
+                <p>{{review.rating}}</p>
+            </div>
+            <cite> {{review.name}}</cite>
+        </article>
+        }
+    </main>
+    <footer>
+        <button>Ver más reseñas</button>
+    </footer>
+</section>

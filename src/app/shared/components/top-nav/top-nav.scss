@@ -1,0 +1,59 @@
+menu {
+    display: flex;
+    height: 65px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1a1a1a00;
+    transition: all 0.3s ease-in-out;
+    color: #1a1a1a;
+    overflow: hidden; /* Garantiza que el humo NUNCA se salga de la cabecera */
+
+
+    nav {
+        display: flex;
+        gap: 15px;
+        cursor: pointer;
+
+        div {
+            /* Padding inferior (16px) para albergar la base de la taza de forma orgánica */
+            padding: 5px 10px;
+            transition: all 0.3s ease-in-out;
+            color: rgba(26, 26, 26, 0.8);
+
+            &.active-link {
+                color: #1a1a1a;
+
+                /* --- FONDOS DEL DIV: HUMO (1) Y BASE DE TAZA (2) --- */
+                background-image: 
+                    /* 1. El humo con 3 líneas curvas animadas internamente */
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %231a1a1a; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
+                    /* 2. La base curva de la taza (Bezier Curve) */
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+                
+                background-repeat: no-repeat, no-repeat;
+                /* El humo nace de las letras (arriba), la base abraza el texto (abajo) */
+                background-position: center top -15px, center bottom -2px;
+                /* Tamaños adaptativos basados en el ancho de la palabra */
+                background-size: 70% 30px, 115% 10px;
+            }
+        }
+    }
+
+    /* ESTADO SCROLLED (NEGRO) - Invierte los SVG a color blanco */
+    &.scrolled {
+        background-color: #1a1a1a;
+        color: rgba(255, 255, 255, 0.8);
+
+        nav div {
+            color: rgba(255, 255, 255, 0.8);
+            &.active-link {
+                color: white;
+
+                background-image: 
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %23ffffff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            }
+        }
+    }
+}

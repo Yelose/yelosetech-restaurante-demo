@@ -11,6 +11,7 @@ section {
     figure {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: calc(var(--h-space)*3);
         picture {
             max-width: min(100%, 500px);

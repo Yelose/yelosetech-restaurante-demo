@@ -60,7 +60,9 @@
 html,
 body {
   height: 100%;
+  max-width: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
 }
 
 body {

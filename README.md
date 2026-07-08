@@ -1,59 +1,30 @@
-# RestauranteAdminPlantilla
+# 🍽️ Sal y Olivo - Demo Web para Restaurante 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.27.
+¡Bienvenido al repositorio de **Sal y Olivo**! 
 
-## Development server
+Este proyecto es una **demostración de página web para restaurantes** creada y diseñada por **Yelose Tech**. Está construida utilizando las últimas tecnologías web para garantizar una experiencia rápida, moderna y 100% responsiva (adaptable a cualquier pantalla de forma fluida).
 
-To start a local development server, run:
+🌐 **¡Mira la web en vivo aquí!** 👉 [https://yelose.github.io/yelosetech-restaurante-demo/](https://yelose.github.io/yelosetech-restaurante-demo/)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tecnologías utilizadas
 
-## Code scaffolding
+*   **Framework:** Angular 20 (usando Signals y tipado estricto).
+*   **Estilos:** SCSS con una arquitectura basada en CSS Grid fluido y variables nativas. Cero dependencias de frameworks CSS pesados.
+*   **Despliegue automatizado:** GitHub Pages.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🚀 Cómo actualizar la web en GitHub Pages
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Publicar actualizaciones en la web en vivo es absurda y maravillosamente fácil gracias a `angular-cli-ghpages`. **No necesitas hacer el build a mano.**
 
-```bash
-ng generate --help
-```
+Cuando quieras subir una nueva versión, sigue estos pasos:
 
-## Building
-
-To build the project run:
+1. Guarda tus cambios locales en Git (`git add .` y `git commit -m "Tus cambios"`).
+2. Sube tus cambios a la rama principal (`git push origin main`).
+3. Ejecuta el comando mágico de despliegue:
 
 ```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+ng deploy --base-href=/yelosetech-restaurante-demo/

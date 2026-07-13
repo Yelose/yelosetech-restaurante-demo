@@ -1,9 +1,19 @@
 <menu type="toolbar" [class.scrolled]="scrolled()">
-    <p>Sal y Olivo</p>
-    <nav>
-        <div routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Inicio</div>
-        <div routerLink="nosotros" routerLinkActive="active-link">Nosotros</div>
-        <div routerLink="carta" routerLinkActive="active-link">Carta</div>
-        <div routerLink="contacto" routerLinkActive="active-link">Contacto</div> 
-    </nav>
+  <p routerLink="/">Sal y Olivo</p>
+
+  <button (click)="toggleMenu($event)" [class.is-active]="isMenuOpen()" aria-label="Abrir menú de navegación">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav [class.menu-open]="isMenuOpen()" (click)="closeMenu()">
+    <ul (click)="$event.stopPropagation()">
+      <!-- ¡Añadidas las barras / delante de cada ruta! -->
+      <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Inicio</a></li>
+      <li><a routerLink="/nosotros" routerLinkActive="active-link" (click)="closeMenu()">Nosotros</a></li>
+      <li><a routerLink="/carta" routerLinkActive="active-link" (click)="closeMenu()">Carta</a></li>
+      <li><a routerLink="/contacto" routerLinkActive="active-link" (click)="closeMenu()">Contacto</a></li>
+    </ul>
+  </nav>
 </menu>

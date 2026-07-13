@@ -1,0 +1,1 @@
+import{Na as t,bb as i,cb as s,lb as a}from"./chunk-B2WX5G5J.js";var n=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-cookies"]],decls:2,vars:0,template:function(e,c){e&1&&(i(0,"p"),a(1,"cookies works!"),s())},encapsulation:2})};export{n as CookiesPage};

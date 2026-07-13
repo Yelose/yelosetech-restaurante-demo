@@ -1,1 +1,0 @@
-import{Da as a,Ta as n,Ua as o,bb as c}from"./chunk-ZE6ZXYEF.js";var s=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=a({type:e,selectors:[["app-contact"]],decls:2,vars:0,template:function(t,p){t&1&&(n(0,"p"),c(1,"contact works!"),o())},encapsulation:2})};export{s as ContactPage};

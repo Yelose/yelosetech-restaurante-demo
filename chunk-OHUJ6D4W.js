@@ -1,1 +1,0 @@
-import{Da as t,Ta as i,Ua as n,bb as p}from"./chunk-ZE6ZXYEF.js";var c=class a{static \u0275fac=function(e){return new(e||a)};static \u0275cmp=t({type:a,selectors:[["app-privacy"]],decls:2,vars:0,template:function(e,r){e&1&&(i(0,"p"),p(1,"privacy works!"),n())},encapsulation:2})};export{c as PrivacyPage};

@@ -1,0 +1,1 @@
+import{Na as t,bb as i,cb as n,lb as p}from"./chunk-B2WX5G5J.js";var o=class a{static \u0275fac=function(e){return new(e||a)};static \u0275cmp=t({type:a,selectors:[["app-privacy"]],decls:2,vars:0,template:function(e,r){e&1&&(i(0,"p"),p(1,"privacy works!"),n())},encapsulation:2})};export{o as PrivacyPage};

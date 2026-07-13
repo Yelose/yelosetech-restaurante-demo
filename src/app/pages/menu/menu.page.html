@@ -1,1 +1,10 @@
-<p>menu works!</p>
+<p>CARTA</p>
+<h2>Carta</h2>
+
+
+    <!-- Nuevo Control Flow de Angular -->
+    @for (product of products(); track product.id) {
+      <p>{{ product.name }}</p>
+    } @empty {
+      <p>No hay platos en la carta o están cargando...</p>
+    }

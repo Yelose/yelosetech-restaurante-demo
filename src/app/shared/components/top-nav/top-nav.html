@@ -7,14 +7,13 @@
     <span></span>
   </button>
 
-  <!-- SI HACEN CLIC EN EL FONDO BEIGE (FUERA DE LAS LETRAS), SE CIERRA -->
   <nav [class.menu-open]="isMenuOpen()" (click)="closeMenu()">
-    <!-- Evitamos que hacer clic en la zona de la lista cierre el menú accidentalmente -->
     <ul (click)="$event.stopPropagation()">
+      <!-- ¡Añadidas las barras / delante de cada ruta! -->
       <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Inicio</a></li>
-      <li><a routerLink="nosotros" routerLinkActive="active-link" (click)="closeMenu()">Nosotros</a></li>
-      <li><a routerLink="carta" routerLinkActive="active-link" (click)="closeMenu()">Carta</a></li>
-      <li><a routerLink="contacto" routerLinkActive="active-link" (click)="closeMenu()">Contacto</a></li>
+      <li><a routerLink="/nosotros" routerLinkActive="active-link" (click)="closeMenu()">Nosotros</a></li>
+      <li><a routerLink="/carta" routerLinkActive="active-link" (click)="closeMenu()">Carta</a></li>
+      <li><a routerLink="/contacto" routerLinkActive="active-link" (click)="closeMenu()">Contacto</a></li>
     </ul>
   </nav>
 </menu>

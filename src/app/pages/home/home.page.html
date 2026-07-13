@@ -4,22 +4,7 @@
     </header>
     <main>
         @for (dish of dishesData; track $index) {
-        <article>
-            <figure>
-                <picture>
-                    <source [srcset]="dish.image" type="image/png">
-                    <img [src]="dish.image" [alt]="dish.name">
-                </picture>
-                <figcaption>
-                    {{dish.name}}
-                </figcaption>
-            </figure>
-            <div>
-                @for (description of dish.description; track $index) {
-                <p>{{description}}</p>
-                }
-            </div>
-        </article>
+            <app-featured-product [name]="dish.name" [image]="dish.image" [description]="dish.description"/>
         }
     </main>
 </section>

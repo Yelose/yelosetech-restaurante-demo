@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { Dish, DishCategory } from '../../core/models/dish';
 import { SidedImageText } from "../../shared/components/sided-image-text/sided-image-text";
+import { FeaturedProduct } from "../../shared/components/featured-product/featured-product";
 
 @Component({
   selector: 'app-home',
-  imports: [SidedImageText, SidedImageText],
+  imports: [SidedImageText, SidedImageText, FeaturedProduct],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })

@@ -1,0 +1,16 @@
+        <article>
+            <figure>
+                <picture>
+                    <source [srcset]="image" type="image/png">
+                    <img [src]="image" [alt]="name">
+                </picture>
+                <figcaption>
+                    {{name}}
+                </figcaption>
+            </figure>
+            <div>
+                @for (d of description; track $index) {
+                <p>{{d}}</p>
+                }
+            </div>
+        </article>

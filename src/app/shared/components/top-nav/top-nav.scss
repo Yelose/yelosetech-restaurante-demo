@@ -22,7 +22,6 @@ menu[type="toolbar"] {
   overflow: visible; 
 
   p {
-    margin: 0;
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     color: #1a1a1a;
@@ -63,15 +62,16 @@ button {
     border-radius: 2px;
   }
 
+  // CORRECCIÓN: ¡Fieles a la guía, eliminamos el !important de aquí!
   &.is-active span {
-    background-color: #1a1a1a !important; 
+    background-color: #1a1a1a; 
     &:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     &:nth-child(2) { opacity: 0; }
     &:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   }
 }
 
-// 3. NAVEGACIÓN MÓVIL
+// 3. NAVEGACIÓN MÓVIL (A pantalla completa)
 nav {
   position: fixed;
   top: 0;
@@ -80,8 +80,9 @@ nav {
   height: 100vh;
   background-color: var(--primary-color, #d8cbb8); 
   display: flex;
+  flex-direction: column; 
   justify-content: center;
-  align-items: center;
+  align-items: stretch; // Hace que las filas se estiren perfectamente de lado a lado
   z-index: 101;
   opacity: 0;
   visibility: hidden;
@@ -90,22 +91,39 @@ nav {
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 3rem; 
+    gap: 0; // Quitamos el gap antiguo para que las celdas se toquen entre sí
 
-    li a {
-      text-decoration: none;
-      color: #1a1a1a;
-      font-size: 2.2rem; 
-      font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      transition: color 0.3s ease;
+    li {
+      width: 100%;
+      // Una línea divisoria sutil para que el usuario sepa hasta dónde llega cada pestaña
+      border-bottom: 1px solid rgba(26, 26, 26, 0.08);
 
-      &.active-link {
-        color: var(--secondary-color, #6e7c4b); 
+      a {
+        // Hacemos que el enlace sea un bloque que ocupe el 100% de la fila
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: #1a1a1a;
+        font-family: 'Playfair Display', serif;
+        font-weight: bold;
+        box-sizing: border-box;
+        transition: all 0.2s ease-in-out;
+
+        // CUMPLIMOS NORMA DE TIPOGRAFÍA FLUIDA: Usamos unidades em
+        font-size: 1.6em; 
+        padding: 1.2em 1em; 
+
+        // Un fondo muy suave que reacciona al pasar el ratón o pulsar con el dedo
+        &:hover, &:active {
+          background-color: rgba(26, 26, 26, 0.04);
+        }
+
+        &.active-link {
+          color: var(--secondary-color, #6e7c4b); 
+        }
       }
     }
   }
@@ -117,7 +135,7 @@ nav {
 }
 
 // 4. RESOLUCIONES DE ESCRITORIO
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   
   menu[type="toolbar"] {
     overflow: hidden; 
@@ -127,6 +145,7 @@ nav {
     display: none; 
   }
 
+  // Reseteamos el comportamiento elástico de móvil para que encaje en el header de escritorio
   nav {
     position: static;
     width: auto;
@@ -135,27 +154,39 @@ nav {
     opacity: 1;
     visibility: visible;
     display: flex;
+    align-items: center;
 
     ul {
       flex-direction: row; 
-      gap: 20px; // Un pelín más de separación entre bloques
+      gap: 20px; 
 
-      li a {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.3rem; // ¡Aumentado! Ahora se lee con una jerarquía perfecta
-        padding: 8px 14px; // Más espacio para que el humo y la taza encajen de locos
-        color: rgba(26, 26, 26, 0.8);
-        font-weight: 500; // Un toque más de presencia
+      li {
+        width: auto;
+        border-bottom: none; // Quitamos las líneas divisorias en escritorio
 
-        // LA TAZA DE CAFÉ Y EL HUMO EN REPOSO
-        &.active-link {
-          color: #1a1a1a;
-          background-image: 
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %231a1a1a; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-          background-repeat: no-repeat, no-repeat;
-          background-position: center top -15px, center bottom -2px;
-          background-size: 70% 30px, 115% 10px;
+        a {
+          display: inline-block;
+          width: auto;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.3rem; 
+          padding: 8px 14px; 
+          color: rgba(26, 26, 26, 0.8);
+          font-weight: 500; 
+
+          &:hover, &:active {
+            background-color: transparent; // Quitamos el sombreado de móvil en escritorio
+          }
+
+          // LA TAZA DE CAFÉ Y EL HUMO EN REPOSO
+          &.active-link {
+            color: #1a1a1a;
+            background-image: 
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %231a1a1a; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat, no-repeat;
+            background-position: center top -15px, center bottom -2px;
+            background-size: 70% 30px, 115% 10px;
+          }
         }
       }
     }

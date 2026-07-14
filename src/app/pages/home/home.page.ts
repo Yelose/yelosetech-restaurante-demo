@@ -1,18 +1,19 @@
 import { Component, signal } from '@angular/core';
-import { Dish, DishCategory } from '../../core/models/dish';
 import { SidedImageText } from "../../shared/components/sided-image-text/sided-image-text";
+import { FeaturedProduct } from "../../shared/components/featured-product/featured-product";
+import { Product, ProductCategory } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-home',
-  imports: [SidedImageText, SidedImageText],
+  imports: [SidedImageText, SidedImageText, FeaturedProduct],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
 export class HomePage {
   // Inicializamos la señal vacía
-  dishes = signal<Dish[]>([]);
+  dishes = signal<Product[]>([]);
 
-  starters: DishCategory = {
+  starters: ProductCategory = {
     id: 'entrantes',
     name: 'Para Compartir',
     description: 'Nuestra selección de entrantes mediterráneos elaborados con productos de proximidad.',
@@ -20,7 +21,7 @@ export class HomePage {
     alt: 'Mesa con surtido de entrantes mediterráneos'
   };
 
-  mainDishes: DishCategory = {
+  mainDishes: ProductCategory = {
     id: 'principales',
     name: 'Platos Principales',
     description: 'Carnes, pescados y arroces con el toque inconfundible de la casa.',
@@ -29,9 +30,9 @@ export class HomePage {
   };
 
   // Aquí tienes los datos reales sacados de tu HTML y adaptados a tu modelo
-  dishesData: Dish[] = [
+  dishesData: Product[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Paella de marisco',
       description: [
         'Un clásico del Mediterráneo elaborado con arroz de grano perfecto, cocinado lentamente en caldo casero y acompañado de una selección de mariscos frescos del día. Gambas, mejillones y calamares se combinan con el sabor del azafrán y el toque final del aceite de oliva virgen extra, creando un plato lleno de tradición, aroma y sabor a mar.',
@@ -40,11 +41,14 @@ export class HomePage {
       price: 24.50,
       image: 'img/destacados/paella_marisco.png',
       alt: 'Paella de marisco',
-      category: this.mainDishes,
-      allergens: ['crustáceos', 'moluscos']
+      categoryId: this.mainDishes.id,
+      allergens: ['crustáceos', 'moluscos'],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      isActive: true
     },
     {
-      id: 2,
+      id: '2',
       name: 'Entrecot a parrilla',
       description: [
         'Jugoso entrecot de ternera cocinado a la brasa en su punto perfecto, con un sellado exterior dorado y un interior tierno y lleno de sabor. Acompañado de verduras asadas y patatas doradas con hierbas mediterráneas, realzado con un toque de aceite de oliva virgen extra y romero fresco.',
@@ -52,11 +56,14 @@ export class HomePage {
       price: 27.50,
       image: 'img/destacados/entrecot_ternera.png',
       alt: 'Entrecot a parrilla',
-      category: this.mainDishes,
-      allergens: ['leche']
+      categoryId: this.mainDishes.id,
+      allergens: ['leche'],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      isActive: true
     },
     {
-      id: 3,
+      id: '3',
       name: 'Lubina al horno',
       description: [
         'Lubina fresca asada al horno con piel ligeramente crujiente y carne jugosa, aromatizada con hierbas mediterráneas, limón y un delicado toque de aceite de oliva virgen extra. Acompañada de verduras asadas y notas cítricas que realzan su sabor natural.',
@@ -65,11 +72,14 @@ export class HomePage {
       price: 24.00,
       image: 'img/destacados/lubina_horno.png', // Recuerda tener esta imagen en tus assets
       alt: 'Lubina al horno',
-      category: this.mainDishes,
-      allergens: ['pescado']
+      categoryId: this.mainDishes.id,
+      allergens: ['pescado'],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      isActive: true
     },
     {
-      id: 4,
+      id: '4',
       name: 'Arroz con leche casero',
       description: [
         'Arroz cremoso cocido lentamente en leche fresca, aromatizado con canela en rama y un sutil toque de limón, hasta alcanzar una textura suave y delicada. Finalizado con un ligero toque de azúcar caramelizado que aporta equilibrio y profundidad al sabor tradicional.',
@@ -78,8 +88,11 @@ export class HomePage {
       price: 6.50,
       image: 'img/destacados/arroz_con_leche.png', // Recuerda tener esta imagen en tus assets
       alt: 'Arroz con leche casero',
-      category: this.mainDishes,
-      allergens: ['leche']
+      categoryId: this.mainDishes.id,
+      allergens: ['leche'],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      isActive: true
     }];
 
   reviews = signal([

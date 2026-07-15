@@ -62,7 +62,6 @@ section {
       justify-items: center; /* Centra las imágenes horizontalmente en su celda */
       align-items: center;    /* Centra las imágenes verticalmente */
       width: 100%;
-      margin: 0; /* Cumplimos a rajatabla la norma de Yelose: 0 margin */
       box-sizing: border-box;
 
       img {
@@ -145,36 +144,36 @@ section {
 ::ng-deep {
 
   app-sided-image-text figure {
-    align-items: center !important;
+    align-items: center;
   }
 
   app-sided-image-text p {
-    font-family: 'Roboto', sans-serif !important;
-    font-size: 1.55rem !important;
-    line-height: 1.7 !important;
-    color: rgba(26, 26, 26, 0.9) !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.55rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 26, 0.9);
   }
 
   // ¡EL SALVAVIDAS! Esto evita que las fotos se estiren o se aplasten
   app-sided-image-text img {
-    object-fit: cover !important;
+    object-fit: cover;
   }
 
   // PRIMER COMPONENTE: Nuestra Historia (Foto Horizontal)
   app-sided-image-text:nth-of-type(1) section figure picture {
-    max-width: 460px !important; 
+    max-width: 460px; 
     img {
-      aspect-ratio: 4 / 3 !important;
-      object-position: 50% 75% !important;
+      aspect-ratio: 4 / 3;
+      object-position: 50% 75%;
     }
   }
 
   // SEGUNDO COMPONENTE: Un Espacio para Disfrutar (Foto Vertical)
   app-sided-image-text:nth-of-type(2) section figure picture {
-    max-width: 320px !important; 
+    max-width: 320px; 
     img {
-      aspect-ratio: 3 / 4 !important;
-      max-height: 420px !important;
+      aspect-ratio: 3 / 4;
+      max-height: 420px;
     }
   }
 }

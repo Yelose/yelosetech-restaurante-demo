@@ -21,11 +21,6 @@ section {
     
     h2 {
       color: var(--secondary-color);
-      font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      font-size: 1.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
   }
 
@@ -54,10 +49,20 @@ section {
     }
 
     figure {
-      display: flex;
-      gap: calc(var(--w-space) * 2);
+      display: grid;
+      
+      /* Si la pantalla es grande y hay espacio para que cada foto mida al menos 350px, 
+         se pondrán una al lado de la otra de forma limpia (50% cada una). 
+         Si el móvil mide menos que eso, se apilan automáticamente una debajo de la otra. */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      
+      /* 2. Mantenemos tus espaciados de diseño y forzamos el centrado */
+      row-gap: calc(var(--h-space) * 2);
+      column-gap: calc(var(--w-space) * 2);
+      justify-items: center; /* Centra las imágenes horizontalmente en su celda */
+      align-items: center;    /* Centra las imágenes verticalmente */
       width: 100%;
-      justify-content: center;
+      margin: 0; /* Cumplimos a rajatabla la norma de Yelose: 0 margin */
       box-sizing: border-box;
 
       img {
@@ -67,10 +72,6 @@ section {
         box-sizing: border-box;
         border: 4px solid var(--primary-color, #dfd5c4);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      }
-
-      &:has(img:nth-of-type(2)) img {
-        width: 50%;
       }
     }
   }

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { SidedImageText } from "../../shared/components/sided-image-text/sided-image-text";
+import { BgPrimaryDirective } from '../../shared/directives/bg-primary.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true, // <-- ¡ESTA ES LA CORRECCIÓN CLAVE! imports solo funciona si el componente es standalone.
-  imports: [SidedImageText],
+  imports: [SidedImageText, BgPrimaryDirective],
   templateUrl: './about.page.html',
   styleUrl: './about.page.scss',
 })
+
 export class AboutPage {
   textoEsencia = [
     'En Sal y Olivo creemos que la cocina es un punto de encuentro.',

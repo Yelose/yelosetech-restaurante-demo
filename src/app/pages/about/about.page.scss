@@ -21,11 +21,6 @@ section {
     
     h2 {
       color: var(--secondary-color);
-      font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      font-size: 1.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
   }
 
@@ -54,27 +49,31 @@ section {
     }
 
     figure {
-      display: flex;
-      gap: calc(var(--w-space) * 2);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      row-gap: calc(var(--h-space) * 2);
+      column-gap: calc(var(--w-space) * 2);
+      justify-items: center; 
+      align-items: center;    
       width: 100%;
-      justify-content: center;
       box-sizing: border-box;
 
       img {
+        display: block;
         width: 100%;
-        object-fit: cover;
-        border-radius: 6px;
+        height: 100%;       
+        object-fit: cover;  
         box-sizing: border-box;
-        border: 4px solid var(--primary-color, #dfd5c4);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transform: scale(1.02);
+        transform-origin: center;
       }
+    }
 
       &:has(img:nth-of-type(2)) img {
         width: 50%;
       }
     }
   }
-}
 
 // Configuración específica de las 3 secciones nativas
 section {
@@ -139,41 +138,47 @@ section {
   }
 }
 // =============================================================================
-// FORCE OVERRIDE: VERSIÓN ULTRA-BLINDADA CON FIX DE DEFORMACIÓN
+// FORCE OVERRIDE: VERSIÓN LIMPIA E IMPECABLE (CERO !IMPORTANT Y FIX SUBPÍXEL)
 // =============================================================================
-::ng-deep {
+:host ::ng-deep {
 
   app-sided-image-text figure {
-    align-items: center !important;
+    align-items: center;
   }
 
   app-sided-image-text p {
-    font-family: 'Roboto', sans-serif !important;
-    font-size: 1.55rem !important;
-    line-height: 1.7 !important;
-    color: rgba(26, 26, 26, 0.9) !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.55rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 26, 0.9);
   }
 
-  // ¡EL SALVAVIDAS! Esto evita que las fotos se estiren o se aplasten
+  // Las imágenes se adaptan al tamaño que dicte su contenedor <picture>
   app-sided-image-text img {
-    object-fit: cover !important;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* 👇 EL ARMA SECRETA: Absorbe el error de decimales del navegador.
+       Al crecer un 1.5% hacia los lados, tapa la línea fantasma de la derecha. */
+    transform: scale(1.015);
+    transform-origin: center;
   }
 
   // PRIMER COMPONENTE: Nuestra Historia (Foto Horizontal)
   app-sided-image-text:nth-of-type(1) section figure picture {
-    max-width: 460px !important; 
+    max-width: 460px; 
+    aspect-ratio: 4 / 3; 
+    
     img {
-      aspect-ratio: 4 / 3 !important;
-      object-position: 50% 75% !important;
+      object-position: 50% 75%;
     }
   }
 
   // SEGUNDO COMPONENTE: Un Espacio para Disfrutar (Foto Vertical)
   app-sided-image-text:nth-of-type(2) section figure picture {
-    max-width: 320px !important; 
-    img {
-      aspect-ratio: 3 / 4 !important;
-      max-height: 420px !important;
-    }
+    max-width: 320px; 
+    aspect-ratio: 3 / 4; 
+    max-height: 420px;
   }
 }

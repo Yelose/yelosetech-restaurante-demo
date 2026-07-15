@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { BgPrimaryDirective } from '../../directives/bg-primary.directive';
 export type TitleColor = 'primary' | 'secondary' | 'dark' | 'light';
 export type ImagePosition = "left" | "right";
-export type BackgroundColor = "bg-primary" | "bg-secondary" | ""
+export type BackgroundColor = "bg-primary" | "bg-secondary" | "";
+
 @Component({
   selector: 'app-sided-image-text',
-  imports: [],
+  imports: [BgPrimaryDirective],
   templateUrl: './sided-image-text.html',
   styleUrl: './sided-image-text.scss',
 })

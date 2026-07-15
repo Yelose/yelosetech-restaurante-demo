@@ -62,7 +62,6 @@ button {
     border-radius: 2px;
   }
 
-  // CORRECCIÓN: ¡Fieles a la guía, eliminamos el !important de aquí!
   &.is-active span {
     background-color: #1a1a1a; 
     &:nth-child(1) { transform: translateY(8px) rotate(45deg); }

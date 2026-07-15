@@ -5,10 +5,12 @@ import { Product, ProductCategory } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [SidedImageText, SidedImageText, FeaturedProduct],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
+
 export class HomePage {
   // Inicializamos la señal vacía
   dishes = signal<Product[]>([]);

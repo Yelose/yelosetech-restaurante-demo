@@ -38,14 +38,6 @@ section {
       flex-direction: column;
       gap: calc(var(--h-space) * 1.5);
       width: 100%;
-
-      p {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.55rem;
-        line-height: 1.7;
-        color: rgba(26, 26, 26, 0.9);
-        text-align: justify;
-      }
     }
 
     figure {
@@ -62,7 +54,6 @@ section {
       justify-items: center; /* Centra las imágenes horizontalmente en su celda */
       align-items: center;    /* Centra las imágenes verticalmente */
       width: 100%;
-      box-sizing: border-box;
 
       img {
         width: 100%;
@@ -112,68 +103,6 @@ section {
     blockquote {
       text-align: center;
       padding: calc(var(--h-space) * 2) 0;
-      p {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.6rem;
-        font-weight: bold;
-        color: #1a1a1a;
-        text-align: center;
-      }
-    }
-
-    button {
-      background-color: #2e2e2e;
-      color: #ffffff;
-      border: none;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.1rem;
-      padding: 1.2em 3em;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-      &:hover, &:active {
-        background-color: #1a1a1a;
-      }
-    }
-  }
-}
-// =============================================================================
-// FORCE OVERRIDE: VERSIÓN ULTRA-BLINDADA CON FIX DE DEFORMACIÓN
-// =============================================================================
-::ng-deep {
-
-  app-sided-image-text figure {
-    align-items: center;
-  }
-
-  app-sided-image-text p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.55rem;
-    line-height: 1.7;
-    color: rgba(26, 26, 26, 0.9);
-  }
-
-  // ¡EL SALVAVIDAS! Esto evita que las fotos se estiren o se aplasten
-  app-sided-image-text img {
-    object-fit: cover;
-  }
-
-  // PRIMER COMPONENTE: Nuestra Historia (Foto Horizontal)
-  app-sided-image-text:nth-of-type(1) section figure picture {
-    max-width: 460px; 
-    img {
-      aspect-ratio: 4 / 3;
-      object-position: 50% 75%;
-    }
-  }
-
-  // SEGUNDO COMPONENTE: Un Espacio para Disfrutar (Foto Vertical)
-  app-sided-image-text:nth-of-type(2) section figure picture {
-    max-width: 320px; 
-    img {
-      aspect-ratio: 3 / 4;
-      max-height: 420px;
     }
   }
 }

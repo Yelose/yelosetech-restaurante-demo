@@ -1,0 +1,220 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-color);
+  min-height: 100vh;
+  padding-bottom: 120px;
+}
+
+/* 🚀 EL MENÚ DESPLEGABLE STICKY DE CATEGORÍAS */
+div[data-role="filters"] {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  padding-inline: 24px;
+  padding-block-start: 60px; 
+  padding-block-end: 24px; 
+
+  position: sticky;
+  top: 0; 
+  z-index: 99; 
+
+  /* 💻 VISTA ESCRITORIO */
+  > div[data-view="desktop"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0px, calc((100vw - 1024px) * 9999), 12px);
+    width: 100%;
+    
+    max-width: clamp(0px, calc((100vw - 1024px) * 9999), 100%);
+    max-height: clamp(0px, calc((100vw - 1024px) * 9999), 3000px);
+    opacity: clamp(0, calc((100vw - 1024px) * 9999), 1);
+    overflow: hidden;
+
+    /* 🎯 UNIFICADO: Agrupamos estilos compartidos para evitar duplicaciones masivas */
+    button, div {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      font-weight: 500;
+      border-radius: 8px;
+      border-style: solid;
+      border-width: clamp(0px, calc((100vw - 1024px) * 9999), 1px);
+      padding-block: clamp(0px, calc((100vw - 1024px) * 9999), 14px);
+      padding-inline: clamp(0px, calc((100vw - 1024px) * 9999), 20px);
+      font-size: clamp(0px, calc((100vw - 1024px) * 9999), 0.95em);
+
+      &[aria-current="page"] {
+        background-color: var(--secondary-color);
+        color: #ffffff;
+        border-color: var(--secondary-color);
+      }
+    }
+
+    button {
+      grid-column: span 2;
+      text-align: left;
+      width: 100%;
+      border-color: rgba(0, 0, 0, 0.06);
+      line-height: clamp(0, calc((100vw - 1024px) * 9999), 1.2);
+    }
+
+    div {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  /* 📱 VISTA MÓVIL DESPLEGABLE */
+  details {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-width: 1px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      color: var(--secondary-color);
+      font-weight: bold;
+      padding-block: 16px;
+      padding-inline: 24px;
+      font-size: 1.05em;
+      line-height: 1.2;
+      &::-webkit-details-marker { display: none; }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 6px;
+      padding-block: 12px;
+      padding-inline: 12px;
+      
+      border-top-style: solid;
+      border-top-color: rgba(0, 0, 0, 0.06);
+      border-top-width: 1px;
+
+      /* 🎯 UNIFICADO: Agrupamos los elementos del menú interno */
+      button, div {
+        color: var(--text-dark);
+        padding-block: 12px;
+        padding-inline: 16px;
+        font-size: 0.95em;
+        border-radius: 6px;
+        transition: background-color 0.2s ease;
+
+        &[aria-current="page"] {
+          background-color: var(--secondary-color);
+          color: #ffffff;
+        }
+      }
+
+      button {
+        text-align: left;
+        background-color: var(--primary-color);
+        border: 0;
+        width: 100%;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.03);
+        cursor: pointer;
+        gap: 12px;
+      }
+    }
+  }
+}
+
+/* LA MAQUETACIÓN CONTENEDORA DE LA CARTA */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+  max-width: 1100px;
+  padding-inline: 24px;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h2 {
+      color: var(--secondary-color);
+    }
+
+    /* Rejilla de platos */
+    > div {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 32px; 
+      width: 100%;
+    }
+  }
+}
+
+/* 🚀 LA CAJA DE CADA PLATO */
+article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  align-items: center; 
+  gap: 24px; 
+  background-color: #ffffff;
+  padding-block: 20px; 
+  padding-inline: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  width: 100%;
+
+  picture {
+    flex: 1 1 160px;
+    width: 100%;
+    max-width: clamp(160px, calc((650px - 100vw) * 9999), 100%);
+    height: clamp(110px, calc((650px - 100vw) * 9999), 180px);
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  > div {
+    flex: 1 1 280px; 
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      width: 100%;
+
+      data {
+        font-weight: bold;
+        color: var(--secondary-color);
+        font-size: 0.95em;
+        white-space: nowrap;
+      }
+    }
+  }
+}

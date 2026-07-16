@@ -153,8 +153,10 @@ main {
     flex-direction: column;
     gap: 24px;
 
+    /* 🚀 REDUCIMOS EL H2 GIGANTE DE MARINA SOLO EN ESTA PÁGINA */
     h2 {
       color: var(--secondary-color);
+      font-size: 1.5rem; /* Marina tiene 2rem global, aquí lo ajustamos */
     }
 
     /* Rejilla de platos */
@@ -167,7 +169,7 @@ main {
   }
 }
 
-/* 🚀 LA CAJA DE CADA PLATO */
+/* LA CAJA DE CADA PLATO */
 article {
   display: flex;
   flex-direction: row;
@@ -208,6 +210,11 @@ article {
       align-items: baseline;
       gap: 16px;
       width: 100%;
+
+      /* 🚀 REAJUSTAMOS EL H3 PARA LA TARJETA DE PLATO */
+      h4 {
+        text-align: left;
+      }
 
       data {
         font-weight: bold;

@@ -3,7 +3,7 @@
   --primary-color: #d8cbb8;
   --secondary-color: #6e7c4b;
   --font-family: 'Roboto', sans-serif;
-  --font-size-base: clamp(14px, 2vw, 26px); // Tamaño base fluido
+  --font-size-base: clamp(14px, 1.5dvw, 26px); // Tamaño base fluido
   --h-space: 1.5dvh;
   --w-space: 1.5dvw;
   --text-dark: rgba(0, 0, 0, 0.8);
@@ -65,7 +65,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+html {
   font-size: var(--font-size-base);
 }
 
@@ -95,11 +95,22 @@ figcaption {
 }
 
 h1 {
-  font-size: calc(var(--font-size-base) * 3);
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.2rem;
 }
 
-p{
+p {
   line-height: 1.6;
+  text-align: justify;
 }
 
 button {

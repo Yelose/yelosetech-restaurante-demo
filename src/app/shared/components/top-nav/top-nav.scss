@@ -10,7 +10,7 @@ menu[type="toolbar"] {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: rgba(26, 26, 26, 0); 
+  background-color: rgba(26, 26, 26, 0);
   transition: all 0.3s ease-in-out;
   color: #1a1a1a;
   width: 100%;
@@ -19,7 +19,7 @@ menu[type="toolbar"] {
   top: 0;
   left: 0;
   z-index: 100;
-  overflow: visible; 
+  overflow: visible;
 
   p {
     font-family: 'Playfair Display', serif;
@@ -35,8 +35,14 @@ menu[type="toolbar"] {
     background-color: #1a1a1a;
     color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    p { color: #ffffff; }
-    button span { background-color: #ffffff; } 
+
+    p {
+      color: #ffffff;
+    }
+
+    button span {
+      background-color: #ffffff;
+    }
   }
 }
 
@@ -62,12 +68,20 @@ button {
     border-radius: 2px;
   }
 
-  // CORRECCIÓN: ¡Fieles a la guía, eliminamos el !important de aquí!
   &.is-active span {
-    background-color: #1a1a1a; 
-    &:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    &:nth-child(2) { opacity: 0; }
-    &:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    background-color: #1a1a1a;
+
+    &:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
   }
 }
 
@@ -78,9 +92,9 @@ nav {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary-color, #d8cbb8); 
+  background-color: var(--primary-color, #d8cbb8);
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: stretch; // Hace que las filas se estiren perfectamente de lado a lado
   z-index: 101;
@@ -112,17 +126,32 @@ nav {
         box-sizing: border-box;
         transition: all 0.2s ease-in-out;
 
-        // CUMPLIMOS NORMA DE TIPOGRAFÍA FLUIDA: Usamos unidades em
-        font-size: 1.6em; 
-        padding: 1.2em 1em; 
+        // CUMPLIMOS NORMA DE TIPOGRAFÍA FLUIDA: Usamos unidades em[cite: 2]
+        font-size: 1.6em;
+        padding: 1.2em 1em;
 
-        // Un fondo muy suave que reacciona al pasar el ratón o pulsar con el dedo
-        &:hover, &:active {
+        /* 1. CORRECCIÓN: Quita el bloque azul translúcido que mete iOS/Android por defecto */
+        -webkit-tap-highlight-color: transparent;
+
+        /* 2. Comportamiento visual al pasar el ratón (Escritorio/Simulador) */
+        &:hover {
           background-color: rgba(26, 26, 26, 0.04);
         }
 
+        /* 3. CORRECCIÓN: Sombreado gris un pelín más intenso al mantener pulsado el dedo */
+        &:active {
+          background-color: rgba(26, 26, 26, 0.08);
+          color: #1a1a1a;
+          /* Forzamos que el texto se quede en su sitio y no se vuelva azul */
+        }
+
         &.active-link {
-          color: var(--secondary-color, #6e7c4b); 
+          color: var(--secondary-color, #6e7c4b);
+
+          /* Evitamos que el enlace de la página activa cambie de color al pulsar */
+          &:active {
+            color: var(--secondary-color, #6e7c4b);
+          }
         }
       }
     }
@@ -136,13 +165,16 @@ nav {
 
 // 4. RESOLUCIONES DE ESCRITORIO
 @media (min-width: 1024px) {
-  
+
   menu[type="toolbar"] {
-    overflow: hidden; 
+    overflow: hidden;
   }
 
   button {
-    display: none; 
+    display: none;
+    z-index: 102;
+    user-select: none;
+    /* Evita que el navegador intente seleccionar el botón como si fuera texto */
   }
 
   // Reseteamos el comportamiento elástico de móvil para que encaje en el header de escritorio
@@ -157,8 +189,8 @@ nav {
     align-items: center;
 
     ul {
-      flex-direction: row; 
-      gap: 20px; 
+      flex-direction: row;
+      gap: 20px;
 
       li {
         width: auto;
@@ -168,19 +200,20 @@ nav {
           display: inline-block;
           width: auto;
           font-family: 'Roboto', sans-serif;
-          font-size: 1.3rem; 
-          padding: 8px 14px; 
+          font-size: 1.3rem;
+          padding: 8px 14px;
           color: rgba(26, 26, 26, 0.8);
-          font-weight: 500; 
+          font-weight: 500;
 
-          &:hover, &:active {
+          &:hover,
+          &:active {
             background-color: transparent; // Quitamos el sombreado de móvil en escritorio
           }
 
           // LA TAZA DE CAFÉ Y EL HUMO EN REPOSO
           &.active-link {
             color: #1a1a1a;
-            background-image: 
+            background-image:
               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %231a1a1a; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
             background-repeat: no-repeat, no-repeat;
@@ -198,7 +231,7 @@ nav {
 
     &.active-link {
       color: #ffffff;
-      background-image: 
+      background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cstyle%3E@keyframes flow %7B 0%25%7Bstroke-dashoffset: 100; opacity: 0;%7D 20%25%7Bopacity: 0.6;%7D 80%25%7Bopacity: 0.6;%7D 100%25%7Bstroke-dashoffset: 0; opacity: 0;%7D%7D .h %7B fill: none; stroke: %23ffffff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 40 60; animation: flow 2.5s infinite linear;%7D .h1 %7B animation-delay: 0s; %7D .h2 %7B animation-delay: 0.8s; %7D .h3 %7B animation-delay: 1.6s; %7D%3C/style%3E%3Cpath class='h h1' d='M30 60 Q40 35 25 20 T35 0' /%3E%3Cpath class='h h2' d='M50 60 Q65 40 50 25 T55 8' /%3E%3Cpath class='h h3' d='M70 60 Q75 45 65 35 T70 16' /%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M 5 2 C 30 14, 70 14, 95 2' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
     }

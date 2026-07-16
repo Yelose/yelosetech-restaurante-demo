@@ -1,11 +1,12 @@
 import { Component, computed, inject, signal, effect } from '@angular/core';
 import { CategoryService } from '../../core/services/category.service';
 import { ProductService } from '../../core/services/product.service';
+import { LayoutContainerWrapper } from "../../shared/wrappers/layout-container/layout-container.wrapper";
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [], 
+  imports: [LayoutContainerWrapper], 
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss']
 })

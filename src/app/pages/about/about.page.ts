@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SidedImageText } from "../../shared/components/sided-image-text/sided-image-text";
+import { LayoutContainerWrapper } from "../../shared/wrappers/layout-container/layout-container.wrapper";
 
 @Component({
   selector: 'app-about',
   standalone: true, // <-- ¡ESTA ES LA CORRECCIÓN CLAVE! imports solo funciona si el componente es standalone.
-  imports: [SidedImageText],
+  imports: [SidedImageText, LayoutContainerWrapper],
   templateUrl: './about.page.html',
   styleUrl: './about.page.scss',
 })

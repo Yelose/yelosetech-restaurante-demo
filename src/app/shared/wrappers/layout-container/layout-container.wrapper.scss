@@ -1,0 +1,7 @@
+:host {
+    display: block;
+    width: 100%;
+    max-width: min(90%, var(--max-page-width));
+    min-width: 0;
+    margin: 0 auto;
+}

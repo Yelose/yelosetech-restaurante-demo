@@ -5,6 +5,8 @@
     <!-- Nuevo Control Flow de Angular -->
     @for (product of products(); track product.id) {
       <p>{{ product.name }}</p>
+      <p>{{ product.price }}</p>
+      <p>{{product.categoryId}}</p>
     } @empty {
       <p>No hay platos en la carta o están cargando...</p>
     }

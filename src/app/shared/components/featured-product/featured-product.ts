@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { FrameColorDirective } from '../../../core/directives/frame-color.directive';
 
 @Component({
   selector: 'app-featured-product',
-  imports: [],
+  imports: [FrameColorDirective],
   templateUrl: './featured-product.html',
   styleUrl: './featured-product.scss',
 })

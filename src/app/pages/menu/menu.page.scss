@@ -13,29 +13,29 @@ div[data-role="filters"] {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1100px;
   padding-inline: 24px;
-  padding-block-start: 60px; 
-  padding-block-end: 24px; 
+  padding-block-start: 60px;
+  padding-block-end: 24px;
 
   position: sticky;
-  top: 0; 
-  z-index: 99; 
+  top: 0;
+  z-index: 99;
 
   /* 💻 VISTA ESCRITORIO */
-  > div[data-view="desktop"] {
+  >div[data-view="desktop"] {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(0px, calc((100vw - 1024px) * 9999), 12px);
     width: 100%;
-    
+
     max-width: clamp(0px, calc((100vw - 1024px) * 9999), 100%);
     max-height: clamp(0px, calc((100vw - 1024px) * 9999), 3000px);
     opacity: clamp(0, calc((100vw - 1024px) * 9999), 1);
     overflow: hidden;
 
     /* 🎯 UNIFICADO: Agrupamos estilos compartidos para evitar duplicaciones masivas */
-    button, div {
+    button,
+    div {
       background-color: #ffffff;
       color: var(--text-dark);
       font-weight: 500;
@@ -75,7 +75,7 @@ div[data-role="filters"] {
     width: 100%;
     overflow: hidden;
     background-color: #ffffff;
-    
+
     border-style: solid;
     border-color: var(--secondary-color);
     border-width: 1px;
@@ -89,25 +89,30 @@ div[data-role="filters"] {
       font-weight: bold;
       padding-block: 16px;
       padding-inline: 24px;
+      padding: 0 0;
       font-size: 1.05em;
       line-height: 1.2;
-      &::-webkit-details-marker { display: none; }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
     }
 
-    > div {
+    >div {
       display: flex;
       flex-direction: column;
       width: 100%;
       gap: 6px;
       padding-block: 12px;
       padding-inline: 12px;
-      
+
       border-top-style: solid;
       border-top-color: rgba(0, 0, 0, 0.06);
       border-top-width: 1px;
 
       /* 🎯 UNIFICADO: Agrupamos los elementos del menú interno */
-      button, div {
+      button,
+      div {
         color: var(--text-dark);
         padding-block: 12px;
         padding-inline: 16px;
@@ -145,7 +150,6 @@ main {
   flex-direction: column;
   gap: 48px;
   width: 100%;
-  max-width: 1100px;
   padding-inline: 24px;
 
   section {
@@ -156,14 +160,15 @@ main {
     /* 🚀 REDUCIMOS EL H2 GIGANTE DE MARINA SOLO EN ESTA PÁGINA */
     h2 {
       color: var(--secondary-color);
-      font-size: 1.5rem; /* Marina tiene 2rem global, aquí lo ajustamos */
+      font-size: 1.5rem;
+      /* Marina tiene 2rem global, aquí lo ajustamos */
     }
 
     /* Rejilla de platos */
-    > div {
+    >div {
       display: inline-flex;
       flex-direction: column;
-      gap: 32px; 
+      gap: 32px;
       width: 100%;
     }
   }
@@ -173,11 +178,11 @@ main {
 article {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; 
-  align-items: center; 
-  gap: 24px; 
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
   background-color: #ffffff;
-  padding-block: 20px; 
+  padding-block: 20px;
   padding-inline: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
@@ -198,11 +203,11 @@ article {
     }
   }
 
-  > div {
-    flex: 1 1 280px; 
+  >div {
+    flex: 1 1 280px;
     display: flex;
     flex-direction: column;
-    gap: 6px; 
+    gap: 6px;
 
     header {
       display: flex;

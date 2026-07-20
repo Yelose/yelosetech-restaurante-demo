@@ -1,20 +1,18 @@
-<section>
-    <header>
-        <h2>Platos Destacados</h2>
-    </header>
-    <main>
-        @for (dish of dishesData; track $index) {
-            <app-featured-product [name]="dish.name" [image]="dish.image" [description]="dish.description"/>
-        }
-    </main>
-</section>
+<app-layout-container>
+    <section>
+        <header>
+            <h2>Platos Destacados</h2>
+        </header>
+        <main>
+            @for (dish of dishesData; track $index) {
+            <app-featured-product [name]="dish.name" [image]="dish.image" [description]="dish.description" />
+            }
+        </main>
+    </section>
+</app-layout-container>
 
-<app-sided-image-text 
-    title="Cuidamos cada detalle" 
-    [text]="textoDetalles" 
-    imgURL="img/img_8.jpg" 
-    alt="Mesa en Sal y Olivo preparada con gente disfrutando la comida"
-    bg="bg-primary">
+<app-sided-image-text title="Cuidamos cada detalle" [text]="textoDetalles" imgURL="img/img_8.jpg"
+    alt="Mesa en Sal y Olivo preparada con gente disfrutando la comida" bg="bg-primary">
 </app-sided-image-text>
 <app-sided-image-text title="Nuestra Esencia" titleColor="secondary" [text]="textoEsencia"
     imgURL="img/nuestra_esencia.png" alt="Mesa en Sal y Olivo preparada con gente disfrutando la comida"
@@ -25,19 +23,21 @@
     <header>
         <h2>Lo que dicen nuestros clientes</h2>
     </header>
-    <main>
-        @for (review of reviews(); track $index) {
-        <article>
-            <blockquote>
-                <p>{{review.review}}</p>
-            </blockquote>
-            <div>
-                <p>{{review.rating}}</p>
-            </div>
-            <cite> {{review.name}}</cite>
-        </article>
-        }
-    </main>
+    <app-layout-container>
+        <main>
+            @for (review of reviews(); track $index) {
+            <article>
+                <blockquote>
+                    <p>{{review.review}}</p>
+                </blockquote>
+                <div>
+                    <p>{{review.rating}}</p>
+                </div>
+                <cite> {{review.name}}</cite>
+            </article>
+            }
+        </main>
+    </app-layout-container>
     <footer>
         <button>Ver más reseñas</button>
     </footer>

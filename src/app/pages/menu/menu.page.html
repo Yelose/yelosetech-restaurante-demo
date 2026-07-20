@@ -1,62 +1,65 @@
-<!-- Área de Filtros Desplegable (Con ID base de retorno) -->
-<div data-role="filters" id="filters-menu-block">
-  <details [open]="isDropdownOpen()" (toggle)="onDropdownToggle($event)">
-    <summary>{{ selectedCategoryName() }} ☰</summary>
-    <div>
-      <button 
-        (click)="selectCategory('all')" 
-        [attr.aria-current]="selectedCategory() === 'all' ? 'page' : null">
-        Todos los productos
-      </button>
-      
-      @for (cat of localCategories(); track cat['id']) {
-        <div 
-          [attr.aria-current]="selectedCategory() === cat['id'] ? 'page' : null"
-          (click)="selectCategory(cat['id'])">
-          {{ cat['name'] }}
-        </div>
-      }
-    </div>
-  </details>
-</div>
+<app-layout-container>
+   <!-- Área de Filtros Desplegable (Con ID base de retorno) -->
+   <div data-role="filters" id="filters-menu-block">
+     <details [open]="isDropdownOpen()" (toggle)="onDropdownToggle($event)">
+       <summary>{{ selectedCategoryName() }} ☰</summary>
+       <div>
+         <button 
+           (click)="selectCategory('all')" 
+           [attr.aria-current]="selectedCategory() === 'all' ? 'page' : null">
+           Todos los productos
+         </button>
+         
+         @for (cat of localCategories(); track cat['id']) {
+           <div 
+             [attr.aria-current]="selectedCategory() === cat['id'] ? 'page' : null"
+             (click)="selectCategory(cat['id'])">
+             {{ cat['name'] }}
+           </div>
+         }
+       </div>
+     </details>
+   </div>
+   
+   <!-- Listado central de la carta -->
+   <main>
+     @for (cat of filteredCategories(); track cat['id']) {
+       <section [id]="cat['id']">
+         <h2>{{ cat['name'] }}</h2>
+         
+         <div>
+           @for (dish of getDishesByCategory(cat)(); track dish['id']) {
+             <article>
+               <picture>
+                 <img [src]="dish['image']" [alt]="dish['name']" />
+               </picture>
+               
+               <div>
+                 <header>
+                   <h4>{{ dish['name'] }}</h4>
+                   <data [value]="dish['price']">{{ dish['price'] }}€</data>
+                 </header>
+                 
+                 <p>{{ dish['description'] }}</p>
+                 
+                 @if (dish['allergens'] && dish['allergens'].length > 0) {
+                   <footer>
+                     @for (allergen of dish['allergens']; track allergen) {
+                       <span 
+                         [style.backgroundColor]="getAllergenData(allergen).bg" 
+                         [style.color]="getAllergenData(allergen).color">
+                         <i>{{ getAllergenData(allergen).icon }}</i>
+                         {{ allergen }}
+                       </span>
+                     }
+                   </footer>
+                 }
+               </div>
+             </article>
+           }
+         </div>
+       </section>
+     }
+   </main>
 
-<!-- Listado central de la carta -->
-<main>
-  @for (cat of filteredCategories(); track cat['id']) {
-    <section [id]="cat['id']">
-      <h2>{{ cat['name'] }}</h2>
-      
-      <div>
-        @for (dish of getDishesByCategory(cat)(); track dish['id']) {
-          <article>
-            <picture>
-              <img [src]="dish['image']" [alt]="dish['name']" />
-            </picture>
-            
-            <div>
-              <header>
-                <h4>{{ dish['name'] }}</h4>
-                <data [value]="dish['price']">{{ dish['price'] }}€</data>
-              </header>
-              
-              <p>{{ dish['description'] }}</p>
-              
-              @if (dish['allergens'] && dish['allergens'].length > 0) {
-                <footer>
-                  @for (allergen of dish['allergens']; track allergen) {
-                    <span 
-                      [style.backgroundColor]="getAllergenData(allergen).bg" 
-                      [style.color]="getAllergenData(allergen).color">
-                      <i>{{ getAllergenData(allergen).icon }}</i>
-                      {{ allergen }}
-                    </span>
-                  }
-                </footer>
-              }
-            </div>
-          </article>
-        }
-      </div>
-    </section>
-  }
-</main>
+ </app-layout-container>

@@ -1,84 +1,84 @@
 <main>
   <!-- 1. INTRODUCCIÓN (Nativa) -->
-  <section>
-    <main>
-      <article>
-        <p>
-          En Sal y Olivo creemos en una cocina honesta, de producto y de raíces.
-          Un lugar donde cada plato cuenta una historia del mar, la tierra y la mesa compartida.
-        </p>
-      </article>
-      <figure>
-        <img src="img/nosotros/img_4.png" alt="Mesa con platos mediterráneos: pescadito frito, jamón, aceitunas e higos">
-        <img src="img/nosotros/img_9.jpg" alt="Manos de cocinero cortando masa fresca sobre una mesa de trabajo de madera con huevos">
-      </figure>
-    </main>
-  </section>
+   <section>
+     <app-layout-container>
+       <article>
+         <p>
+           En Sal y Olivo creemos en una cocina honesta, de producto y de raíces.
+           Un lugar donde cada plato cuenta una historia del mar, la tierra y la mesa compartida.
+         </p>
+       </article>
+       <figure>
+         <img src="img/nosotros/img_4.png" alt="Mesa con platos mediterráneos: pescadito frito, jamón, aceitunas e higos">
+         <img src="img/nosotros/img_9.jpg"
+           alt="Manos de cocinero cortando masa fresca sobre una mesa de trabajo de madera con huevos">
+       </figure>
+     </app-layout-container>
+   </section>
 
   <!-- 2. NUESTRA HISTORIA (Refactorizada con componente) -->
-  <app-sided-image-text 
-    title="NUESTRA HISTORIA" 
-    titleColor="dark"
-    [text]="textoHistoria" 
-    imgURL="img/nosotros/img_5.png" 
-    alt="Salón comedor interior de Sal y Olivo"
-    imagePosition="right"
-    bg="bg-primary">
-  </app-sided-image-text>
+  <section>
+    <app-sided-image-text title="NUESTRA HISTORIA" titleColor="dark" [text]="textoHistoria"
+      imgURL="img/nosotros/img_5.png" alt="Salón comedor interior de Sal y Olivo" imagePosition="right" bg="bg-primary"
+      imageOrientation="vertical">
+    </app-sided-image-text>
+  </section>
 
   <!-- 3. NUESTRA FILOSOFÍA (Nativa) -->
-  <section>
-    <header>
-      <h2>NUESTRA FILOSOFÍA</h2>
-    </header>
-    <main>
-      <article>
-        <p>
-          Trabajamos con producto fresco, proximidad y temporada. Creemos en una cocina sin
-          artificios, donde el sabor del ingrediente es el verdadero protagonista.
-        </p>
-        <p>
-          El aceite de oliva virgen extra, las hierbas aromáticas y los productos del mar son
-          el hilo conductor de nuestra propuesta gastronómica.
-        </p>
-      </article>
-      <figure>
-        <img src="img/nosotros/unnamed.jpg" alt="Cocinero trabajando con una masa fresca de pan">
-      </figure>
-    </main>
-  </section>
+   <section>
+     <app-layout-container>
+       <header>
+         <h2>NUESTRA FILOSOFÍA</h2>
+       </header>
+       <main>
+         <article>
+           <p>
+             Trabajamos con producto fresco, proximidad y temporada. Creemos en una cocina sin
+             artificios, donde el sabor del ingrediente es el verdadero protagonista.
+           </p>
+           <p>
+             El aceite de oliva virgen extra, las hierbas aromáticas y los productos del mar son
+             el hilo conductor de nuestra propuesta gastronómica.
+           </p>
+         </article>
+         <figure>
+           <img src="img/nosotros/unnamed.jpg" alt="Cocinero trabajando con una masa fresca de pan">
+         </figure>
+       </main>
+     </app-layout-container>
+   </section>
 
   <!-- 4. UN ESPACIO PARA DISFRUTAR (Refactorizada con componente) -->
-  <app-sided-image-text 
-    title="UN ESPACIO PARA DISFRUTAR" 
-    titleColor="dark"
-    [text]="textoDisfrutar" 
-    imgURL="img/nosotros/img_1.png" 
-    alt="Zona de sofás exterior en la terraza de Sal y Olivo"
-    imagePosition="left"
-    bg="bg-primary">
-  </app-sided-image-text>
+   <section>
+     <app-sided-image-text title="UN ESPACIO PARA DISFRUTAR" titleColor="dark" [text]="textoDisfrutar"
+        imageOrientation="vertical"
+       imgURL="img/nosotros/img_1.png" alt="Zona de sofás exterior en la terraza de Sal y Olivo" imagePosition="left"
+       bg="bg-primary">
+     </app-sided-image-text>
+   </section>
 
   <!-- 5. EQUIPO Y CIERRE (Nativa) -->
-  <section>
-    <header>
-      <h2>¿QUIÉNES HACEMOS SAL Y OLIVO?</h2>
-    </header>
-    <main>
-      <article>
-        <p>
-          Detrás de cada plato hay un equipo apasionado por la cocina y el servicio. Cocineros,
-          sala y sumilleres trabajan en armonía para ofrecer una experiencia cuidada de principio a fin.
-        </p>
-      </article>
-      <figure>
-        <img src="img/nosotros/cocineros.jpg" alt="Equipo de cocina posando">
-        <img src="img/nosotros/camareros.jpg" alt="Equipo de sala posando">
-      </figure>
-      <blockquote>
-        <p>“La cocina mediterránea no se entiende solo en el plato, sino en la forma de compartirla.”</p>
-      </blockquote>
-      <button type="button">Reservar mesa</button>
-    </main>
-  </section>
+   <section>
+     <app-layout-container>
+       <header>
+         <h2>¿QUIÉNES HACEMOS SAL Y OLIVO?</h2>
+       </header>
+       <main>
+         <article>
+           <p>
+             Detrás de cada plato hay un equipo apasionado por la cocina y el servicio. Cocineros,
+             sala y sumilleres trabajan en armonía para ofrecer una experiencia cuidada de principio a fin.
+           </p>
+         </article>
+         <figure>
+           <img src="img/nosotros/cocineros.jpg" alt="Equipo de cocina posando">
+           <img src="img/nosotros/camareros.jpg" alt="Equipo de sala posando">
+         </figure>
+         <blockquote>
+           <cite>“La cocina mediterránea no se entiende solo en el plato, sino en la forma de compartirla.”</cite>
+         </blockquote>
+         <button type="button">Reservar mesa</button>
+       </main>
+     </app-layout-container>
+   </section>
 </main>

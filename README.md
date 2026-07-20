@@ -66,3 +66,7 @@ Cuando quieras subir una nueva versión, sigue estos pasos:
 
 ```bash
 ng deploy --base-href=/yelosetech-restaurante-demo/
+```
+
+- Se puede ver la página publicada en el enlace 
+https://yelose.github.io/yelosetech-restaurante-demo

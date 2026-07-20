@@ -1,16 +1,18 @@
-<section [class]="bg">
-    <header>
-        <h2 [class]="titleColor">{{title}}</h2>
-    </header>
-    <figure [class]="imagePosition">
-        <picture>
-            <source [srcset]="imgURL" type="image">
-            <img [src]="imgURL" [alt]="alt">
-        </picture>
-        <figcaption>
-            @for (item of text; track $index) {
-                <p>{{item}}</p>
-            }
-        </figcaption>
-    </figure>
-</section>
+    <section [class]="bg">
+        <app-layout-container>
+            <header>
+                <h2 [class]="titleColor">{{title}}</h2>
+            </header>
+            <figure [class]="imagePosition">
+                <picture [class]="imageOrientation">
+                    <source [srcset]="imgURL" type="image">
+                    <img [src]="imgURL" [alt]="alt" >
+                </picture>
+                <figcaption>
+                    @for (item of text; track $index) {
+                        <p>{{item}}</p>
+                    }
+                </figcaption>
+            </figure>
+        </app-layout-container>
+    </section>

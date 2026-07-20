@@ -15,7 +15,6 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         gap: calc(var(--h-space)*3);
-        max-width: min(90%, 1200px);
         picture {
             max-width: min(100%, 500px);
             img {

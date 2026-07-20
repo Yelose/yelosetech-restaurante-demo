@@ -1,13 +1,13 @@
-<section>
-    <header>
-        <h2>Platos Destacados</h2>
-    </header>
-    <main>
-        @for (dish of dishesData; track $index) {
-            <app-featured-product [name]="dish.name" [image]="dish.image" [description]="dish.description"/>
-        }
-    </main>
-</section>
+<section container>
+        <header>
+            <h2>Platos Destacados</h2>
+        </header>
+        <main>
+            @for (dish of dishesData; track $index) {
+                <app-featured-product [name]="dish.name" [image]="dish.image" [description]="dish.description"/>
+            }
+        </main>
+    </section>
 
 <app-sided-image-text 
     title="Cuidamos cada detalle" 
@@ -21,11 +21,11 @@
     imagePosition="right">
 </app-sided-image-text>
 
-<section class="reviews">
+<section class="reviews" >
     <header>
         <h2>Lo que dicen nuestros clientes</h2>
     </header>
-    <main>
+    <main container>
         @for (review of reviews(); track $index) {
         <article>
             <blockquote>

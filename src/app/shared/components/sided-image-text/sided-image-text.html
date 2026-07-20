@@ -2,7 +2,7 @@
     <header>
         <h2 [class]="titleColor">{{title}}</h2>
     </header>
-    <figure [class]="imagePosition">
+    <figure [class]="imagePosition" container>
         <picture>
             <source [srcset]="imgURL" type="image">
             <img [src]="imgURL" [alt]="alt" frame="secondary">

@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { SidedImageText } from "../../shared/components/sided-image-text/sided-image-text";
 import { FeaturedProduct } from "../../shared/components/featured-product/featured-product";
 import { Product, ProductCategory } from '../../core/models/product.model';
+import { ContainerDirective } from '../../core/directives/container.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [SidedImageText, SidedImageText, FeaturedProduct],
+  imports: [SidedImageText, SidedImageText, FeaturedProduct, ContainerDirective],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })

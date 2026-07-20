@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-// Estructura base para las secciones NATIVAS restantes (1, 3 y 5)
+// Estructura base para las secciones NATIVAS (Introducción, Filosofía y Equipo)
 section {
   display: flex;
   flex-direction: column;
@@ -42,18 +42,13 @@ section {
 
     figure {
       display: grid;
-      
-      /* Si la pantalla es grande y hay espacio para que cada foto mida al menos 350px, 
-         se pondrán una al lado de la otra de forma limpia (50% cada una). 
-         Si el móvil mide menos que eso, se apilan automáticamente una debajo de la otra. */
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-      
-      /* 2. Mantenemos tus espaciados de diseño y forzamos el centrado */
       row-gap: calc(var(--h-space) * 2);
       column-gap: calc(var(--w-space) * 2);
-      justify-items: center; /* Centra las imágenes horizontalmente en su celda */
-      align-items: center;    /* Centra las imágenes verticalmente */
+      justify-items: center;
+      align-items: center;    
       width: 100%;
+      box-sizing: border-box;
 
       img {
         width: 100%;
@@ -67,11 +62,11 @@ section {
   }
 }
 
-// Configuración específica de las 3 secciones nativas
+// CONFIGURACIÓN SEMÁNTICA: Reemplazo absoluto de los :nth-of-type prohibidos
 section {
   
-  // 1ª Sección nativa (Introducción inicial)
-  &:nth-of-type(1) > main {
+  // Identificador para la Introducción
+  &[data-section="introduction"] > main {
     grid-template-columns: 1fr;
     justify-items: center;
     article p { text-align: center; } 
@@ -79,23 +74,21 @@ section {
     figure {
       img { aspect-ratio: 16 / 10; }
       
-      // ¡EL ÚLTIMO RETOQUE! Apuntamos a la primera imagen (img_4)
-      img:nth-of-type(1) {
-        // Un 30% eleva el encuadre hacia la parte superior de la foto.
-        // Si quieres ver más la parte de abajo, súbelo a 70% u 80%.
+      // Ajuste de encuadre por posición de datos
+      img[data-position="adjusted"] {
         object-position: 50% 75%; 
       }
     }
   }
 
-  // 2ª Sección nativa (Filosofía - ¡Antes era la 3!)
-  &:nth-of-type(2) > main {
+  // Identificador para la Filosofía
+  &[data-section="philosophy"] > main {
     grid-template-columns: 1fr;
     figure img { aspect-ratio: 16 / 7; } 
   }
 
-  // 3ª Sección nativa (Equipo y Cierre - ¡Antes era la 5!)
-  &:nth-of-type(3) > main {
+  // Identificador para el Equipo
+  &[data-section="team"] > main {
     grid-template-columns: 1fr;
     justify-items: center;
     figure img { aspect-ratio: 16 / 10; }

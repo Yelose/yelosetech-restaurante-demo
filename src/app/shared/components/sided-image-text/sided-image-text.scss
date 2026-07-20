@@ -5,25 +5,35 @@ section {
     align-items: center;
     padding: calc(var(--h-space)*7) calc(var(--w-space)*3);
     gap: calc(var(--h-space)*5);
+
     header {
-        h2{
+        h2 {
             text-transform: uppercase;
         }
     }
+
     figure {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: calc(var(--h-space)*3);
+
         picture {
-            max-width: min(100%, 500px);
+            display: block;
+            width: 100%;
             img {
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
             }
         }
-        &.right{
+
+        &.right {
             flex-direction: row-reverse;
         }
+
         >figcaption {
             display: flex;
             flex-direction: column;
@@ -40,22 +50,37 @@ section {
     }
 
 }
-.primary{
+
+.primary {
     color: var(--primary-color)
 }
-.secondary{
+
+.secondary {
     color: var(--secondary-color);
 }
-.dark{
+
+.dark {
     color: var(--text-dark)
 }
-.light{
+
+.light {
     color: var(--text-light)
 }
-.bg-primary{
+
+.bg-primary {
     background-color: var(--primary-color);
 }
-.bg-secondary{
+
+.bg-secondary {
     background-color: var(--secondary-color);
 }
 
+.horizontal {
+    max-width: min(100%, 500px);
+    aspect-ratio: 16 / 9;
+}
+
+.vertical {
+    max-width: min(100%, 300px);
+    aspect-ratio: 9 / 12;
+}

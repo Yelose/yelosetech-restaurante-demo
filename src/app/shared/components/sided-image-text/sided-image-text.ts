@@ -4,6 +4,7 @@ import { ContainerDirective } from '../../../core/directives/container.directive
 export type TitleColor = 'primary' | 'secondary' | 'dark' | 'light';
 export type ImagePosition = "left" | "right";
 export type BackgroundColor = "bg-primary" | "bg-secondary" | ""
+export type Orientation = "vertical" | "horizontal";
 @Component({
   selector: 'app-sided-image-text',
   imports: [FrameColorDirective, ContainerDirective],
@@ -18,4 +19,6 @@ export class SidedImageText {
   @Input() alt = "Esto es una imagen"
   @Input() imagePosition = "left"
   @Input() bg: BackgroundColor = ""
+  @Input() imgOrientation: Orientation = "horizontal"
+  @Input() sectionOrientation: Orientation = "horizontal"
  }

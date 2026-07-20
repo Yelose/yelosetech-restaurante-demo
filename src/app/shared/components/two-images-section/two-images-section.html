@@ -1,0 +1,29 @@
+<section container>
+    @if (title) {
+    <header>
+        <h2>{{title}}</h2>
+    </header>}
+    <main>
+        <article>
+            @for (t of text; track $index) {
+            <p>{{t}}</p>
+            }
+        </article>
+        <figure>
+            <img [src]="img1" [alt]="img1alt" frame="primary">
+            <img [src]="img2" [alt]="img2alt" frame="primary">
+        </figure>
+        @if (blockquote) {
+        <blockquote>
+            @for (q of blockquote; track $index) {
+            <cite>“{{q}}”</cite>
+            }
+        </blockquote>
+        }
+        @if (buttonUrl) {
+        <button type="button">
+            <a [href]="buttonUrl">{{buttonText}}</a>
+        </button>
+        }
+    </main>
+</section>

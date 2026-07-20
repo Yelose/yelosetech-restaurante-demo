@@ -94,15 +94,5 @@ section {
     figure img { aspect-ratio: 16 / 7; } 
   }
 
-  // 3ª Sección nativa (Equipo y Cierre - ¡Antes era la 5!)
-  &:nth-of-type(3) > main {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    figure img { aspect-ratio: 16 / 10; }
 
-    blockquote {
-      text-align: center;
-      padding: calc(var(--h-space) * 2) 0;
-    }
-  }
 }
